@@ -16,11 +16,11 @@ class Ball
         @image.draw_rot(@x, @y, 2, 0)
     end
 
-    def move(player, enemy)
-        if @x - @radius <= player.x + 11 && @y + @radius > player.y && @y - @radius < player.y + 45
+    def move(player_1, player_2)
+        if @x - @radius <= player_1.x + 11 && @y + @radius > player_1.y && @y - @radius < player_1.y + 45
             @velocity_x = 5.0
             @paddle_collision_sound.play
-        elsif @x + @radius >= enemy.x && @y + @radius > enemy.y && @y - @radius < enemy.y + 45
+        elsif @x + @radius >= player_2.x && @y + @radius > player_2.y && @y - @radius < player_2.y + 45
             @velocity_x = -5.0
             @paddle_collision_sound.play
         elsif @y - @radius <= 0
